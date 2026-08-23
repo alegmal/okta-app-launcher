@@ -1,0 +1,290 @@
+:root {
+  --bg: #ffffff;
+  --fg: #1d1d21;
+  --muted: #6b6b76;
+  --border: #e3e3e8;
+  --row-hover: #f4f6fb;
+  --row-active: #e6effe;
+  --accent: #1662dd;
+  --mark: #fff2a8;
+  --chip: #eef0f4;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17181c;
+    --fg: #e9e9ee;
+    --muted: #9a9aa6;
+    --border: #2c2d34;
+    --row-hover: #22242b;
+    --row-active: #1d2a44;
+    --accent: #6ea8ff;
+    --mark: #6b5d16;
+    --chip: #262830;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+}
+
+/* Popup mode: Chrome caps popups at 800x600, so sit just under that.
+   Much wider than the stock Okta plugin (~450px) → long names get room. */
+body {
+  width: 780px;
+  height: 560px;
+  overflow-y: auto;
+}
+
+/* Wide mode: same page opened as a full tab (app.html?wide=1). Fill the tab. */
+body.wide {
+  width: auto;
+  height: auto;
+  overflow-y: visible;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 28px 12px;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+#search {
+  flex: 1;
+  font-size: 20px;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--fg);
+  outline: none;
+}
+
+#search:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+.count {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.icon-btn {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  line-height: 1;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.icon-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Okta home — accent-tinted so it's easy to spot in the bar */
+#home {
+  background: color-mix(in srgb, var(--accent) 14%, var(--bg));
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  color: var(--accent);
+}
+
+#home:hover {
+  background: color-mix(in srgb, var(--accent) 22%, var(--bg));
+}
+
+body.wide .wide-btn {
+  display: none;
+}
+
+.hint {
+  max-width: 1100px;
+  margin: 8px auto 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 12px 28px 60px;
+}
+
+.results {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 14px;
+  border-radius: 10px;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.row:hover {
+  background: var(--row-hover);
+}
+
+.row.active {
+  background: var(--row-active);
+}
+
+.row img,
+.row .logo-fallback {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  flex: 0 0 auto;
+  object-fit: contain;
+  background: var(--chip);
+}
+
+.logo-fallback {
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.label {
+  flex: 1;
+  /* full names — wrap, never truncate */
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.label mark {
+  background: var(--mark);
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+.open {
+  color: var(--accent);
+  font-size: 13px;
+  white-space: nowrap;
+  opacity: 0;
+}
+
+.row:hover .open,
+.row.active .open {
+  opacity: 1;
+}
+
+.empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 60px 20px;
+}
+
+.empty button {
+  margin-top: 16px;
+  font-size: 15px;
+  padding: 10px 18px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ---- Options page ---- */
+.options-main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 32px 28px 60px;
+}
+
+.options-main h1 {
+  font-size: 22px;
+  margin: 0 0 24px;
+}
+
+.options-main section {
+  margin-bottom: 28px;
+}
+
+.options-main label,
+.options-main .label-text {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.options-main #domain {
+  width: 100%;
+  font-size: 16px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--fg);
+  outline: none;
+}
+
+.options-main #domain:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+.options-main .hint {
+  margin: 8px 0 0;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.save-btn {
+  font-size: 15px;
+  padding: 10px 22px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.save-status {
+  font-weight: 600;
+}

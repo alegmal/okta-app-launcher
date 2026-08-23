@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Okta App Launcher</title>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <header>
+      <div class="bar">
+        <button id="home" class="icon-btn" title="Open Okta home">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <circle cx="12" cy="12" r="7" fill="none" stroke="currentColor" stroke-width="4" />
+          </svg>
+        </button>
+        <input
+          id="search"
+          type="text"
+          placeholder="Search apps — type any words, in any order"
+          autocomplete="off"
+          autofocus
+          spellcheck="false"
+        />
+        <span id="count" class="count"></span>
+        <button id="wide" class="icon-btn wide-btn" title="Open in a full-width tab">⤢</button>
+        <button id="settings" class="icon-btn" title="Settings — change your Okta domain">⚙</button>
+      </div>
+      <p class="hint">↑ ↓ to move · Enter to open · Esc to clear</p>
+    </header>
+
+    <main>
+      <ul id="results" class="results"></ul>
+      <div id="empty" class="empty" hidden></div>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

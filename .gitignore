@@ -1,0 +1,15 @@
+# Store packages — built artifacts, not source
+*.zip
+
+# Screenshots / store assets
+screens/
+store-1280x800/
+
+# Local notes and store-submission scratch
+STATUS.md
+SUBMIT.md
+STORE-LISTING.md
+SLACK-ANNOUNCEMENT.md
+demo-seed.js
+
+.DS_Store

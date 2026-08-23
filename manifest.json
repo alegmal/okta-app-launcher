@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Okta App Launcher (wide)",
+  "version": "1.0.0",
+  "description": "Full-width, fuzzy-searchable list of your assigned Okta apps — full names, no truncation. Configurable Okta domain.",
+  "permissions": ["storage"],
+  "optional_host_permissions": ["https://*.okta.com/*", "https://*.oktapreview.com/*"],
+  "action": {
+    "default_title": "Open Okta App Launcher",
+    "default_popup": "app.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
