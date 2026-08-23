@@ -82,6 +82,11 @@ domain you configure (requested at runtime, not at install).
 | Empty despite being signed in | Open **⚙** and re-save the domain (re-grants permission). |
 | Changed Okta orgs | **⚙** → enter the new domain → Save. |
 
+## Privacy
+
+No data leaves your device except the one API call to your own Okta org.
+See [PRIVACY.md](PRIVACY.md).
+
 ## License
 
 MIT — see [LICENSE](LICENSE).
